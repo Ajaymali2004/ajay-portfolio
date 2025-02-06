@@ -39,7 +39,7 @@ function App() {
   };
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
   return (
-    <Router>
+    <Router basename="/ajay-portfolio">
       <div
         className={`App  ${
           theme
