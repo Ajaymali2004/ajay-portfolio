@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { FaSun, FaMoon, FaPalette, FaBars, FaTimes } from "react-icons/fa";
 import "./App.css";
@@ -38,6 +38,19 @@ function App() {
     setColorPlateVisible(false);
   };
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
+  const sidebarRef = useRef(null);
+  useEffect(() => {
+    if (isSidebarOpen) {
+      const handleClickOutside = (event) => {
+        if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+          setSidebarOpen(false);
+        }
+      };
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [isSidebarOpen]);
   return (
     <Router basename="/ajay-portfolio">
       <div
@@ -47,7 +60,7 @@ function App() {
             : "bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white"
         }`}
       >
-        <div
+        <div ref={sidebarRef}
           className={`fixed z-500 top-0 left-0 h-full w-64 p-8 flex flex-col items-center border-r-4 ${
             borderColor[accentColor]
           } 
@@ -66,7 +79,7 @@ function App() {
           >
             <FaTimes size={24} />
           </button>
-          <Navbar theme={theme} accentColor={accentColor} />
+          <Navbar theme={theme} accentColor={accentColor} toggleSidebar={toggleSidebar}/>
         </div>
         <div
           className={`fixed top-0 left-0 right-0 flex items-center justify-between p-3 z-50 
@@ -76,28 +89,23 @@ function App() {
       : "bg-gradient-to-r from-gray-700 via-gray-900 to-black backdrop-blur-sm"
   }`}
         >
-          {/* Mobile Menu Button - Visible Only on Mobile */}
           <button
             className="lg:hidden p-2 rounded-full"
             onClick={toggleSidebar}
           >
             <FaBars size={24} />
           </button>
-
-          {/* Icons Container - Positioned Right on All Screens */}
           <div className="flex gap-3 items-center ml-auto">
-            {/* Theme Toggle Button */}
             <div
               className={`${textColor[accentColor]} cursor-pointer border-2 p-2 rounded-full`}
+              onClick={toggleTheme}
             >
               {theme ? (
-                <FaSun className="text-xl" onClick={toggleTheme} />
+                <FaSun className="text-xl"/>
               ) : (
-                <FaMoon className="text-xl" onClick={toggleTheme} />
+                <FaMoon className="text-xl"/>
               )}
             </div>
-
-            {/* Color Palette Button */}
             <div
               className={`${textColor[accentColor]} cursor-pointer border-2 p-2 rounded-full`}
               onClick={() => setColorPlateVisible(!isColorPlateVisible)}
@@ -107,7 +115,6 @@ function App() {
           </div>
         </div>
 
-        {/* Main Content */}
         <div className={`content lg:ml-64 min-h-screen p-6 sm:p-8 md:p-12`}>
           <Routes>
             <Route

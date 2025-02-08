@@ -1,17 +1,18 @@
 import React from "react";
-
+import photo1 from "/Rock_Bishop.png";
+import photo2 from "/Prep-Tech.png";
 const projects = [
   {
     title: "Rock Bishop",
     description: "A real-time chess platform with matchmaking & chess updates.",
-    image: "/Rock_Bishop.png",
+    image: photo1,
     liveLink: "https://rock-bishop-ajay.netlify.app/",
     repoLink: "https://github.com/Ajaymali2004/Rock_bishop",
   },
   {
     title: "Prep-Tech",
     description: "An interview preparation platform with structured resources.",
-    image: "/Prep-Tech.png", 
+    image: photo2, 
     liveLink: "https://prep-tech-frontend.vercel.app/",
     repoLink: "https://github.com/Ajaymali2004/Prep-Tech",
   },

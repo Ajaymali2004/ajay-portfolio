@@ -10,11 +10,9 @@ import {
 } from "react-icons/fa";
 import { borderColor, textColor } from "./color";
 
-export default function Navbar({ accentColor, theme }) {
+export default function Navbar({ accentColor, theme, toggleSidebar }) {
   const location = useLocation();
   const navigate = useNavigate();
-
-  // Define navigation items
   const navItems = [
     { name: "Home", path: "/", icon: <FaHome /> },
     { name: "About", path: "/about", icon: <FaUser /> },
@@ -28,6 +26,7 @@ export default function Navbar({ accentColor, theme }) {
         onClick={(e) => {
           e.preventDefault();
           window.location.href = "/";
+          toggleSidebar();
         }}
       >
         <div
@@ -45,7 +44,7 @@ export default function Navbar({ accentColor, theme }) {
             {navItems.map((item) => (
               <li key={item.path}>
                 <button
-                  className={`text-xl flex items-center p-3 space-x-3 transition-all duration-300 ease-in-out w-full text-left hover:text-xl cursor-pointer
+                  className={`text-xl flex items-center p-3 space-x-3 transition-all duration-300 ease-in-out w-full text-left hover:text-2xl cursor-pointer
                     ${
                       location.pathname === item.path
                         ? textColor[accentColor]
@@ -53,7 +52,12 @@ export default function Navbar({ accentColor, theme }) {
                         ? "text-black"
                         : "text-white"
                     }`}
-                  onClick={() => navigate(item.path)}
+                  onClick={() => {
+                    navigate(item.path);
+                    setTimeout(() => {
+                      toggleSidebar();
+                    }, 300);
+                  }}
                 >
                   {item.icon}
                   <span className="ml-2">{item.name}</span>
