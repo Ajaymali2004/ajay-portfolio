@@ -51,7 +51,6 @@ function App() {
     }
   }, [isSidebarOpen]);
   return (
-    <Router basename="/ajay-portfolio">
       <div
         className={`App  ${
           theme
@@ -155,7 +154,6 @@ function App() {
           </div>
         )}
       </div>
-    </Router>
   );
 }
 
