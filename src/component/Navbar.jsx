@@ -25,7 +25,7 @@ export default function Navbar({ accentColor, theme, toggleSidebar }) {
         className="logo text-3xl font-bold mb-8 mt-8 font-serif text-center relative p-2 cursor-pointer"
         onClick={(e) => {
           e.preventDefault();
-          window.location.href = "/";
+          window.location.href = "/ajay-portfolio/";
           toggleSidebar();
         }}
       >
