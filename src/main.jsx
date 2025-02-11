@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import { HashRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
-  <HashRouter basename="/ajay-portfolio/">
+  <HashRouter basename="/ajay-portfolio">
     <App />
   </HashRouter>
 );
