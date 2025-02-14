@@ -90,7 +90,7 @@ const AboutMe = ({ theme, accentColor }) => {
           {/* Buttons */}
           <div className="mt-6 flex gap-4">
             <a
-              href="https://drive.google.com/file/d/1oR6qrHTZhxGfMKZu4XVXsnoca6R6AbJh/view"
+              href="https://drive.google.com/file/d/1kd64eOp7H8GJdf2eoVGOsl5y-dW9LrEn/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
