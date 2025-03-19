@@ -1,6 +1,7 @@
 import React from "react";
 import photo1 from "/Rock_Bishop.png";
 import photo2 from "/Prep-Tech.png";
+import photo3 from "/JoinMyChat.png";
 const projects = [
   {
     title: "Rock Bishop",
@@ -15,6 +16,13 @@ const projects = [
     image: photo2, 
     liveLink: "https://prep-tech-frontend.vercel.app/",
     repoLink: "https://github.com/Ajaymali2004/Prep-Tech",
+  },
+  {
+    title: "Join My Chat",
+    description: "A real-time chat application enabling seamless communication with instant messaging.",
+    image: photo3, 
+    liveLink: "https://join-my-chat.netlify.app/",
+    repoLink: "https://github.com/Ajaymali2004/JoinMyChat",
   },
 ];
 
@@ -79,7 +87,7 @@ const Projects = ({ theme, accentColor }) => {
                   rel="noopener noreferrer"
                   className={`px-4 py-2 border-2 border-${accentColor} text-${accentColor} rounded-lg hover:bg-${accentColor} hover:text-white transition-all`}
                 >
-                  Live Demo
+                  Live
                 </a>
               </div>
             </div>
