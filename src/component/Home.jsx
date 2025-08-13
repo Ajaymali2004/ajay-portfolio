@@ -73,7 +73,7 @@ export default function Home({ theme, accentColor }) {
             theme ? "text-black" : "text-white"
           } max-w-lg`}
         >
-          I'm a 3rd-year Computer Science student at IIIT Surat, passionate
+          I'm a final-year Computer Science student at IIIT Surat, passionate
           about web development, problem-solving, and building scalable
           applications.
         </p>
